@@ -17,6 +17,10 @@ public class PersistenceService
 
     public async Task<WebPageModel> CreateNewWebPage(string key)
     {
+        if (_fileService.FileExists(GetBlockNameByKey(key)))
+        {
+            throw new Exception("A web page with this name already exists!");
+        }
         var defaultWebPageContent = await _fileService.ReadFile(Constants.DefaultWebsitePageFileName);
         var newWebPage = JsonConvert.DeserializeObject<WebPageModel>(defaultWebPageContent);
         newWebPage.Key = key;

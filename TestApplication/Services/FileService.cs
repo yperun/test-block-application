@@ -6,14 +6,17 @@ public class FileService
     {
         CreateDirectoryIfDoesNotExist();
         await File.WriteAllTextAsync(GetFilePath(fileName), fileContent);
-        Console.WriteLine($"Successfully written to {GetFilePath(fileName)}!");
     }
 
     public async Task<string> ReadFile(string fileName)
     {
         var fileContent = await File.ReadAllTextAsync(GetFilePath(fileName));
-        Console.WriteLine($"Successfully read from {GetFilePath(fileName)}!");
         return fileContent;
+    }
+
+    public bool FileExists(string fileName)
+    {
+        return File.Exists(GetFilePath(fileName));
     }
 
     private void CreateDirectoryIfDoesNotExist()
