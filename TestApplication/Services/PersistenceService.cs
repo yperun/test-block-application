@@ -40,16 +40,24 @@ public class PersistenceService
     public async Task<WebPageModel> Update(string key, string blockId, string blockModelJson)
     {
         var webPage = await ReadWebPage(key);
-        webPage = await RemoveBlock(key, blockId);
+        webPage.Blocks = webPage.Blocks.Where(block => block.Id != blockId);
         var updatedSection = JsonConvert.DeserializeObject<BlockModel>(blockModelJson);
         updatedSection.Id = blockId;
         webPage.Blocks = webPage.Blocks.Append(updatedSection);
+        await SaveWebPage(webPage);
         return webPage;
     }
 
     public async Task<WebPageModel> RemoveBlock(string key, string blockId)
     {
         var webPage = await ReadWebPage(key);
+        var blockCountBeforeRemoval = webPage.Blocks.Count();
+        webPage.Blocks = webPage.Blocks.Where(block => block.Id != blockId);
+        var blockCountAfterRemoval = webPage.Blocks.Count();
+        if (blockCountBeforeRemoval - blockCountAfterRemoval != 1)
+        {
+            throw new Exception($"Tried to remove an incorrect number of blocks ({blockCountBeforeRemoval - blockCountAfterRemoval}). Removal canceled.");
+        }
         webPage.Blocks = webPage.Blocks.Where(block => block.Id != blockId);
         await SaveWebPage(webPage);
         return webPage;

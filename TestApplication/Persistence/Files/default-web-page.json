@@ -1,0 +1,96 @@
+{
+	"Key": "Default-Key",
+	"Blocks": [
+		{
+			"BusinessName": "My Business Name",
+			"LogoUri": "",
+			"NavigationMenuLinks": [
+				{
+					"Text": "About Us",
+					"Url": ""
+				},
+				{
+					"Text": "Services",
+					"Url": ""
+				},
+				{
+					"Text": "Reviews",
+					"Url": ""
+				},
+				{
+					"Text": "FAQ",
+					"Url": ""
+				}
+			],
+			"Button": {
+				"Text": "",
+				"Enabled": true,
+				"IconUri": "",
+				"ClickUri": ""
+			},
+			"Id": "header",
+			"Order": 0
+		},
+		{
+			"HeadlineText": "My Headline Text",
+			"DescriptionText": "My description text",
+			"Button": {
+				"Text": "",
+				"Enabled": true,
+				"IconUri": "",
+				"ClickUri": ""
+			},
+			"ImageUri": "",
+			"ImageAlignment": {
+				"X": 600,
+				"Y": 50
+			},
+			"ContentAlignment": {
+				"X": 50,
+				"Y": 50
+			},
+			"Id": "hero",
+			"Order": 1
+		},
+		{
+			"HeadlineText": "My Headline Text",
+			"ServiceCards": [
+				{
+					"Name": "Service Card 1",
+					"Description": "Service Card Description",
+					"ImageUri": "",
+					"Button": {
+						"Text": "",
+						"Enabled": true,
+						"IconUri": "",
+						"ClickUri": ""
+					}
+				},
+				{
+					"Name": "Service Card 2",
+					"Description": "Service Card Description",
+					"ImageUri": "",
+					"Button": {
+						"Text": "",
+						"Enabled": true,
+						"IconUri": "",
+						"ClickUri": ""
+					}
+				},
+				{
+					"Name": "Service Card 3",
+					"Description": "Service Card Description",
+					"ImageUri": "",
+					"Button": {
+						"Text": "",
+						"Enabled": true,
+						"IconUri": "",
+						"ClickUri": ""
+					}
+				}
+			],
+			"Id": "services",
+			"Order": 2
+		}
+	]
+}
